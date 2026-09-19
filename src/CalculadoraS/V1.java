@@ -95,6 +95,7 @@ public class V1 extends JFrame implements ActionListener {
 		contentPane.add(btn_Divi);
 		{
 			btn_Reset = new JButton("Reset");
+			btn_Reset.addActionListener(this);
 			btn_Reset.setBounds(167, 227, 89, 23);
 			contentPane.add(btn_Reset);
 		}
@@ -116,6 +117,9 @@ public class V1 extends JFrame implements ActionListener {
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn_Reset) {
+			do_btn_Reset_actionPerformed(e);
+		}
 		if (e.getSource() == btnNewButton) {
 			do_btnNewButton_actionPerformed(e);
 		}
@@ -139,5 +143,11 @@ public class V1 extends JFrame implements ActionListener {
 	}
 	private void MostrarError() {
 		JOptionPane.showMessageDialog(this, "Digite números 1 y 2");
+	}
+	protected void do_btn_Reset_actionPerformed(ActionEvent e) {
+		txtNum1.setText("");
+		txtNum2.setText("");
+		txtS.setText("");
+		txtNum1.grabFocus();
 	}
 }
